@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LOG_DAY_04</title>
+    <style>
+        body {
+            background-color: black;
+            color: #ffff00;
+            font-family: monospace;
+            padding: 10px;
+            margin: 0;
+        }
+        
+        a {
+            color: #0dff00;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        h1 {
+            color: #40ff00;
+        }
+        
+        .subtitle {
+            color: #22ff00;
+        }
+        
+        .file-not-found-link {
+            color: #ff0033;
+            font-family: monospace;
+            font-size: 1em;
+            text-decoration: none;
+            margin: 0 8px;
+            line-height: 1.5;
+        }
+        
+        .file-not-found-link:hover {
+            color: #00ff6a;
+        }
+        
+        #file-not-found-container {
+            margin-top: 10px;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="logs.html" class="back-link">back to logs</a>
+
+    <div id="content">
+        <h1>LOG_DAY_04</h1>
+        <p class="subtitle">[FILE CORRUPTED - DATA LOSS INCIDENT]</p>
+        
+        <br><br>
+        
+        <!-- FILE NOT FOUND repeated -->
+        <div id="file-not-found-container"></div>
+    </div>
+
+    <script>
+        // All the links from your list (17 total)
+        const allLinks = [
+            'https://youtube.com/shorts/EfIVB8hJQzc?si=dX3ZRQY0DSEgot4h',
+            'https://youtu.be/1UufaK3pQMg?si=qYOynPavNKUTQmGu',
+            'https://youtu.be/bGrdPmrjDBQ?si=RVF5_yS0ti4uuo8z',
+            'https://youtube.com/shorts/3vBlSffRR0A?si=hywJOHdV6N1nELAj',
+            'https://youtu.be/8GDF1gBBSX4?si=VtbNNlIsRJn5dd1b',
+            'https://youtu.be/0bnxF9YfyFI?si=lLjBNF3UFuR7iGNr',
+            'https://youtu.be/uhND7Mvp3f4?si=DaIq0AH5tSN0Kriq',
+            'https://youtu.be/f9HwA5IR-sg?si=o_JNITvQPqJYyxHa',
+            'https://youtu.be/sdixBmttEhM?si=ykYck2BF1Kkz907K',
+            'https://youtu.be/E2WofPN-iXA?si=GHN02tBdqk3U9LKr',
+            'https://youtu.be/bMb_cBv3iks?si=Z0ztwV8SVNhW-eTq',
+            'https://youtu.be/CsLz5AeCh-A?si=dUa6xgRP5kY6T0Mt',
+            'https://youtu.be/JX-8-IYhQKk?si=C87Mn8_9tHg0iMyq',
+            'https://youtu.be/0OIZMGEQ298?si=VcfPzTREyFHMz9qF',
+            'https://youtu.be/ZhZvMbNT_qc?si=4mjfjDUeVncSntOi',
+            'https://youtu.be/XX7PdJIGiCw?si=MJZi2hhGFnclF9nT',
+            'https://youtu.be/QYAnJ_QyCQg?si=ll9NH5cCApiKvmPx'
+        ];
+        
+        const container = document.getElementById('file-not-found-container');
+        
+        for (let i = 0; i < 1000; i++) {
+            const linkElement = document.createElement('a');
+            
+            const randomLink = allLinks[Math.floor(Math.random() * allLinks.length)];
+            
+            linkElement.href = randomLink;
+            linkElement.target = '_blank';
+            linkElement.className = 'file-not-found-link';
+            linkElement.textContent = 'FILE_NOT_FOUND';
+            
+            container.appendChild(linkElement);
+            container.appendChild(document.createTextNode(' '));
+            
+            if ((i + 1) % 9 === 0) {
+                container.appendChild(document.createElement('br'));
+            }
+        }
+        
+        const backLink = document.querySelector('.back-link');
+        setInterval(() => {
+            if (Math.random() < 0.2) {
+                const original = backLink.textContent;
+                backLink.textContent = '[ERROR]';
+                backLink.style.color = '#ff0033';
+                
+                setTimeout(() => {
+                    backLink.textContent = original;
+                    backLink.style.color = '';
+                }, 200);
+            }
+        }, 3000);
+    </script>
+
+</body>
+</html>

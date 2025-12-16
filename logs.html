@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Experiment Logs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="margin: 10px;">
+        <a href="#" id="back-link">back to directory</a>
+    </div>
+
+    <div id="content" style="margin: 10px;">
+        <h1 class="glitch">03_EXPERIMENT_LOGS</h1>
+        <p class="subtitle">dai1y 0bs3rvations & 4nomaly track1ng</p>
+        
+        <br><br>
+
+        <ul>
+            <li><a href="log_day_01.html">LOG_DAY_01</a></li>
+            <li><a href="log_day_02.html" class="glitch-folder">LOG_DAY_02</a></li>
+            <li><a href="log_day_03.html" class="glitch-folder">LOG_DAY_03</a></li>
+            <li><a href="log_day_04.html" class="heavy-glitch">LOG_DAY_04</a></li>
+            <li><a href="log_day_05.html" class="heavy-glitch">LOG_DAY_05</a></li>
+        </ul>
+        
+        <br><br>
+        
+        <div class="disclaimer">
+            <p>3RR0R-ERROR-3RR0R-ERROR3ERROR3EO3R3#$%#$^@#$%@@#$%@#$%@#$%@#$%</p>
+        </div>
+    </div>
+
+    <script>
+        // back to directory thing
+        document.getElementById('back-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html#main';
+        });
+        
+        // apply glitch effect to title
+        function glitchTextContinuous(element) {
+            const original = element.innerText;
+            const chars = "!<>-_\\/[]{}—=+*^?#________";
+            let frameCount = 0;
+
+            function doGlitch() {
+                if (frameCount % 2 === 0) {
+                    element.innerText = original
+                        .split("")
+                        .map(char => Math.random() < 0.25 ? chars[Math.floor(Math.random() * chars.length)] : char)
+                        .join("");
+                }
+                if (Math.random() < 0.08) {
+                    element.innerText = original;
+                }
+
+                frameCount++;
+                requestAnimationFrame(doGlitch);
+            }
+
+            doGlitch();
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // glitch the title
+            const title = document.querySelector("h1.glitch");
+            if (title) glitchTextContinuous(title);
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,241 @@
+body {
+    background-color: black;
+    color: #ffff00;
+    font-family: monospace;
+    padding: 40px;
+}
+
+a {
+    color: #0dff00;
+    text-decoration: none;
+}
+
+.subtitle {
+    color: #22ff00;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.glitch {
+    position: relative;
+    color: #40ff00;
+}
+.warning-glitch {
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+    animation: warnFlicker 3s infinite steps(1, end);
+}
+
+@keyframes warnFlicker {
+    0%, 5%, 7%, 12%, 20%, 22%, 100% {
+        opacity: 1;
+    }
+    6%, 21% {
+        opacity: 0.4;
+    }
+    13% {
+        opacity: 0.2;
+    }
+    19% {
+        opacity: 0.6;
+    }
+}
+.footer {
+    color: gray;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 40px;
+    text-align: left;
+}
+/* access page thing */
+
+#access-screen {
+    width: 100%;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#terminal-box {
+    color: #00ff6a;
+    font-family: "Courier New", monospace;
+    border: 2px solid #00ff6a;
+    padding: 30px;
+    width: 500px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 0 20px #00ff6a;
+}
+
+#terminal-box .red {
+    color: #ff0033;
+}
+
+#access-input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1.2em;
+    background: black;
+    color: #00ff6a;
+    border: 1px solid #00ff6a;
+    font-family: "Courier New", monospace;
+}
+
+#access-btn {
+    margin-top: 10px;
+    padding: 8px 18px;
+    background: black;
+    color: #00ff6a;
+    border: 1px solid #00ff6a;
+    cursor: pointer;
+    font-family: "Courier New", monospace;
+}
+
+#access-btn:hover {
+    background: #003b1e;
+}
+
+#access-error {
+    color: red;
+    margin-top: 10px;
+    height: 20px;
+    font-family: "Courier New", monospace;
+}
+
+.input-box {
+    border: 1px solid #00ff6a;
+    padding: 10px;
+    margin-top: 15px;
+    background: rgba(0, 20, 10, 0.5);
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    color: #00ff6a;
+    margin-right: 10px;
+}
+
+#access-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff6a;
+    font-family: "Courier New", monospace;
+    font-size: 1.2em;
+    flex-grow: 1;
+    width: 100%;
+}
+
+#access-input::placeholder {
+    color: #005a2f;
+}
+
+.small {
+    font-size: 0.9em;
+    color: #008844;
+}
+
+/* glitching code hint */
+#code-hint {
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+
+/* shake glitchy effect */
+.shake {
+    animation: shake 0.3s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0px); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0px); }
+}
+#access-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff6a;
+    font-family: "Courier New", monospace;
+    font-size: 1.1em;
+    margin-left: 5px;
+    width: 200px;
+}
+
+#access-input::placeholder {
+    color: #005a2f;
+}
+
+/* glitch effects for folders */
+.glitch-folder {
+    position: relative;
+    animation: mild-glitch 3s infinite;
+}
+
+.heavy-glitch {
+    position: relative;
+    animation: heavy-glitch 0.5s infinite steps(1);
+    color: #04ff00;
+}
+
+@keyframes mild-glitch {
+    0%, 95% { opacity: 1; }
+    96% { opacity: 0.1; }
+    97% { opacity: 0.7; }
+    98% { opacity: 0.0; }
+    99% { opacity: 0.9; }
+    100% { opacity: 1; }
+}
+
+.disclaimer {
+    color: gray;
+    font-size: 0.8em;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+/* mandate page */
+#mandate-content {
+    margin: 20px;
+    font-family: monospace;
+    color: #ffff00;
+    line-height: 1;
+    max-width: 900px;
+}
+
+#mandate-content h1.glitch {
+    color: #40ff00;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    color: #f0fd65;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* for small glitch effect */
+.glitch-subtitle {
+    position: relative;
+}
+
+/* back link */
+a[href="index.html"] {
+    color: #0dff00;
+    text-decoration: none;
+}
+
+a[href="index.html"]:hover {
+    text-decoration: underline;
+}

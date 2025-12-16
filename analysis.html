@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>AURA Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .section {
+            margin: 20px 0;
+        }
+        
+        .section-title {
+            color: #f0fd65;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+        
+        .file-link {
+            color: #00ff6a;
+            text-decoration: none;
+            font-size: 1.5em;
+            border: 2px solid #00ff6a;
+            padding: 15px 30px;
+            display: inline-block;
+        }
+        
+        .file-link:hover {
+            color: #ff0033;
+            border-color: #ff0033;
+        }
+        
+        .popup-message {
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            border: 3px solid #ff0033;
+            color: #ff0033;
+            padding: 20px 40px;
+            font-family: monospace;
+            font-size: 1.5em;
+            z-index: 1000;
+            display: none;
+            text-align: center;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div style="margin: 20px;">
+        <a href="index.html#main">back to directory</a>
+    </div>
+
+    <div id="content" style="margin: 20px;">
+        <h1 class="glitch">04_AURA_ANALYSIS</h1>
+        
+        <br><br><br>
+        
+        <!-- fake results -->
+        <div class="section">
+            <div class="section-title">FULL_RESULTS_UNFILTERED</div>
+            <a href="#" class="file-link" id="full-results-link">Click to view</a>
+        </div>
+        
+        <!-- finale report thing -->
+        <div class="section">
+            <div class="section-title">FINAL_REPORT_AUDIT</div>
+            <a href="https://www.canva.com/design/DAG7n_lNZ3U/lgWo82pIZX_R9bBeMoKFdw/view?utm_content=DAG7n_lNZ3U&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7ca6a2c44d" target="_blank" class="file-link">Click to view</a>
+        </div>
+        
+        <!-- popup scary msg -->
+        <div id="popup" class="popup-message">
+            FILE NOT FOUND. EXIT NOW. W3 SE3 Y0U.
+        </div>
+        
+        <br><br>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector("h1.glitch");
+            if (title) glitchTextContinuous(title);
+            
+            // full results link to show popup
+            const fullResultsLink = document.getElementById('full-results-link');
+            const popup = document.getElementById('popup');
+            
+            fullResultsLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // show popup immediately
+                popup.style.display = 'block';
+                
+                // hide popup after some time
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 4000);
+            });
+            
+            // "Click to view" under full results show "file_not_found" on hover
+            fullResultsLink.addEventListener('mouseenter', function() {
+                const original = this.textContent;
+                this.textContent = 'file_not_found';
+                this.style.color = '#ff0033';
+                this.style.borderColor = '#ff0033';
+                
+                // glitch effect while hovering
+                this.glitchInterval = setInterval(() => {
+                    const chars = "!<>-_\\/[]{}—=+*^?#";
+                    this.textContent = 'file_not_found'.split('').map(char => 
+                        Math.random() < 0.15 ? chars[Math.floor(Math.random() * chars.length)] : char
+                    ).join('');
+                }, 100);
+            });
+            
+            fullResultsLink.addEventListener('mouseleave', function() {
+                clearInterval(this.glitchInterval);
+                this.textContent = 'Click to view';
+                this.style.color = '';
+                this.style.borderColor = '';
+            });
+        });
+    </script>
+</body>
+</html>

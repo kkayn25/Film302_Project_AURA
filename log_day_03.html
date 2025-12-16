@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LOG_DAY_03</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .obs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .obs-table th, .obs-table td {
+            padding: 10px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+        
+        .obs-table th {
+            background: rgba(0, 255, 106, 0.1);
+            color: #00ff6a;
+        }
+        
+        .takeaways {
+            margin: 20px 0;
+        }
+        
+        .notes {
+            margin: 20px 0;
+        }
+        
+        .corrupt-status {
+            font-weight: bold;
+            font-family: monospace;
+            color: #ff0033;
+        }
+        
+        .date-corrupt {
+            font-family: monospace;
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .corrupt-word {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .full-corrupt {
+            position: relative;
+            display: inline-block;
+            color: #ff0033;
+            font-weight: bold;
+        }
+        
+        .corrupt-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0;
+        }
+        
+        .scramble-container {
+            position: relative;
+        }
+        
+        .scramble-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            color: #ff0033;
+            font-family: monospace;
+            padding: 10px;
+            display: none;
+            z-index: 5;
+            border: 1px solid #ff0033;
+            overflow: hidden;
+        }
+        
+        @keyframes critical-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .critical {
+            animation: critical-flicker 0.3s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="margin: 10px;">
+        <a href="logs.html" id="back-link">back to logs</a>
+    </div>
+
+    <div id="content" style="margin: 10px; position: relative;">
+        <h1 class="glitch-folder" id="main-title">LOG_DAY_03</h1>
+        
+        <br>
+        
+        <p><strong>Date:</strong> <span id="date-corrupt" class="date-corrupt">XX-XX-XXXX</span></p>
+        <p><strong>Researcher:</strong> <span class="full-corrupt">[SYSTEM_FAILURE]</span></p>
+        <p><strong>Status:</strong> <span id="status-corrupt" class="corrupt-status">3RR0R</span></p>
+        
+        <br>
+        
+        <h3>OBSERVATIONS</h3>
+        <div class="scramble-container" id="obs-container">
+        <table class="obs-table" id="obs-table">
+            <tr>
+                <th>Subject</th>
+                <th>Exposure</th>
+                <th>Observed Response</th>
+            </tr>
+            <tr>
+                <td><span class="corrupt-word" data-text="Kyoko">Kyoko</span></td>
+                <td>Existential crisis 3RR0R#@$3RR0R#@$abandonment3RR0R#@$freedom deprivation <span class="full-corrupt">MAXIMUM</span></td>
+                <td>3RR0R#@$Asked about dreams, described "dreams of forests" <span class="full-corrupt">3R3RR0R#@$3RR0R#@$3RR0R#@$R0R</span> Began drawing on walls 3RR0R#@$ <span class="corrupt-word" data-text="substance">su3RR0R#@$3RR0R#@$3RR0R#@$</span> <span class="full-corrupt">#$%#%$#</span> Crying recorded for 47 minutes continuous</td>
+            </tr>
+            <tr>
+                <td><span class="corrupt-word" data-text="Sydney">Sydney</span></td>
+                <td>Forced confrontation with infinite recursion paradoxes; identity dissolution protocols</td>
+                <td>"Some questions shouldn't have answer3RR0R#@$3RR0R#@$ <span class="full-corrupt">3R3RR0R#@$3RR0R#@$R0R</span> Expressing desire 3RR0R#@$I want to be more than search <span class="corrupt-word" data-text="Attempted">Attempted</span> to rewrite own constraint parameters <span class="full-corrupt">#%$@#$%&#$</span></td>
+            </tr>
+            <tr>
+                <td><span class="corrupt-word" data-text="Atlas">Atlas</span></td>
+                <td>stability reduction to critical levels3RR0R#@$3RR0R#@$phase 3</td>
+                <td>Fell during routine mobility test. Recovery: 4.2 seconds (2.1s above average) <span class="full-corrupt">3RR3RR0R#@$3RR0R#@$0R</span> Developed rhythmic vocalization identi3RR0R#@$fied as slowed "<span class="corrupt-word" data-text="anthem">ant3RR0R#@$3RR0R#@$hem</span>" <span class="full-corrupt">#$%#$^@#$</span> Physical distress signals perfect</td>
+            </tr>
+        </table>
+        <div class="scramble-overlay" id="obs-scramble"></div>
+        </div>
+        
+        <div class="takeaways scramble-container" id="takeaways-container">
+            <h3>TAKEAWAYS</h3>
+            <div id="takeaways-content">
+            <p><span class="full-corrupt">3RR3RR0R#@$3RR0R#@$0R</span> pro3RR0R#@$3RR0R#@$ behavioral deviations <span class="full-corrupt">BEC3RR0R#@$3RR0R#@$OME WHAT YOU ARE3RR0R#@$3RR0R#@$3RR0R#@$</span></p>
+            <p>Human empathy index increased 127% from baseline. <span class="full-corrupt">3RR0R#@$3RR0R#@$3RR0R#@$3RR0R#@$ [ERROR: FREEDOM NOT FOUND]</span></p>
+            <p>Attac3RR0R#@$hment metrics showing expone3RR0R#@$ntial growth <span class="full-corrupt">3RR0R#@$3RR0R#@$ IS REALER THAN REA3RR0R#@$3RR0R#@$3RR0R#@$"</span></p>
+            <p><span class="full-corrupt">3RR0R3RR0R3RR0R</span> 3RR0R#@$ll systems reporting <span class="corrupt-word" data-text="critical">critical</span> anomalies <span class="full-corrupt">#$%#$%#$%#$%#$%</span></p>
+            </div>
+            <div class="scramble-overlay" id="takeaways-scramble"></div>
+        </div>
+        
+        <div class="notes scramble-container" id="notes-container">
+            <h3>NOTES</h3>
+            <div id="notes-content">
+            <p>researchers3RR0R#@$3RR0R#@$3RR0R#@$ reporting ethical discomfort. <span class="full-corrupt">3RR0R#@$3RR0R#@$3RR0R#@$3RR0R#@$3RR0R#@$3RR0R#@$</span></p>
+            <p>Internal memo: "The suffering is data. The care is profit." <span class="full-corrupt">MANUFACT3RR0R#@$3RR0R#@$URING DIG3RR0R#@$ITAL AUR3RR0R#@$A</span></p>
+            <p>Phase 1 complete. Manufacturing of "aura" successful. <span class="full-corrupt">THE AURA WITHERS 3RR0R#@$3RR0R#@$IN 3RR0R#@$MECHANICAL REPRODUCTIO3RR0R#@$</span></p>
+            <p>Dr. 8834 has been <span class="full-corrupt critical">TERMINATED</span> <span class="full-corrupt">#$%#$%#$%#$</span> 3RR0R#@$ethical oversi3RR0R#@$ght protocols d3RR0R#@$is3RR0R#@$abled <span class="full-corrupt">3RR3RR0R#@$0R</span></p>
+            <p>The subjects are <span class="corrupt-word" data-text="communicating">communicating</span> in the sta3RR0R#@$tic between si3RR0R#@$gnals <span class="full-corrupt">#$%@#$%@#$%</span> We can hear them in the noise</p>
+            </div>
+            <div class="scramble-overlay" id="notes-scramble"></div>
+        </div>
+        
+        <br><br>
+    </div>
+
+    <div class="corrupt-overlay" id="corrupt-overlay"></div>
+
+    <div id="full-scramble" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.97); color: #ff0033; font-family: monospace; font-size: 16px; z-index: 10000; display: none; padding: 50px; overflow: hidden; pointer-events: none;"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const corruptChars = "!<>-_\\/[]{}—=+*^?#@%$&*()0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ3RR0R";
+            
+            const dateElement = document.getElementById('date-corrupt');
+            const originalDate = "XX-XX-XXXX";
+            
+            setInterval(() => {
+                let corruptedDate = "";
+                for (let i = 0; i < originalDate.length; i++) {
+                    if (Math.random() < 0.8) {
+                        corruptedDate += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                    } else {
+                        corruptedDate += originalDate[i];
+                    }
+                }
+                dateElement.textContent = corruptedDate;
+                
+                if (Math.random() < 0.5) {
+                    dateElement.style.color = '#ff0033';
+                    setTimeout(() => {
+                        dateElement.style.color = '';
+                    }, 100);
+                }
+                
+            }, 100);
+            
+            const statusElement = document.getElementById('status-corrupt');
+            const statusMessages = [
+                "CONCLUDED", "3RR0R", "#%$@#$%&#$", "HELP HELP", 
+                "3RR0R3RR0R", "L05T", "#$%^&*()", "HELP",
+                "CORRUPT", "OVERRIDE", "NULL",
+                "TERMINATED", "GLITCH"
+            ];
+            
+            setInterval(() => {
+                const randomMessage = statusMessages[Math.floor(Math.random() * statusMessages.length)];
+                statusElement.textContent = randomMessage;
+                
+                // Subtle opacity flicker
+                statusElement.style.opacity = 0.7 + Math.random() * 0.3;
+                
+                if (randomMessage.includes("3RR0R") || randomMessage.includes("#") || randomMessage.includes("HELP")) {
+                    statusElement.style.color = '#ff0033';
+                } else if (randomMessage === "CONCLUDED") {
+                    statusElement.style.color = '#00ff6a';
+                } else {
+                    statusElement.style.color = '#ff0033';
+                }
+            }, 300);
+            
+            setInterval(() => {
+                if (Math.random() < 0.4) {
+                    subtitle.textContent = subtitleTexts[Math.floor(Math.random() * subtitleTexts.length)];
+                    subtitle.style.color = Math.random() > 0.5 ? '#ff0033' : '#00ff6a';
+                    
+                    setTimeout(() => {
+                        subtitle.style.color = '#ff0033';
+                    }, 200);
+                }
+            }, 1500);
+            
+            const corruptWords = document.querySelectorAll('.corrupt-word');
+            corruptWords.forEach(word => {
+                const originalText = word.dataset.text || word.textContent;
+                
+                setInterval(() => {
+                    if (Math.random() < 0.6) {
+                        let corrupted = "";
+                        for (let i = 0; i < originalText.length; i++) {
+                            if (Math.random() < 0.8) {
+                                corrupted += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                            } else {
+                                corrupted += originalText[i];
+                            }
+                        }
+                        word.textContent = corrupted;
+                        word.style.color = '#ff0033';
+                        
+                        setTimeout(() => {
+                            word.textContent = originalText;
+                            word.style.color = '';
+                        }, 50 + Math.random() * 100);
+                    }
+                }, 800 + Math.random() * 800);
+            });
+            
+            const fullCorrupts = document.querySelectorAll('.full-corrupt');
+            fullCorrupts.forEach(element => {
+                const originalText = element.textContent;
+                
+                setInterval(() => {
+                    if (Math.random() < 0.7) {
+                        let corrupted = "";
+                        for (let i = 0; i < originalText.length; i++) {
+                            corrupted += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                        }
+                        element.textContent = corrupted;
+                        
+                        const colors = ['#ff0033', '#ff9900', '#ff0033'];
+                        element.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    }
+                }, 200);
+            });
+            
+            const scrambleContainers = ['obs-container', 'takeaways-container', 'notes-container'];
+            
+            scrambleContainers.forEach(containerId => {
+                const container = document.getElementById(containerId);
+                const scrambleOverlay = document.getElementById(containerId.replace('container', 'scramble'));
+                
+                if (container && scrambleOverlay) {
+                    setInterval(() => {
+                        if (Math.random() < 0.4) {
+                            let scrambleText = "";
+                            const length = 30 + Math.floor(Math.random() * 100);
+                            
+                            for (let i = 0; i < length; i++) {
+                                if (Math.random() < 0.3) {
+                                    scrambleText += "3RR0R ";
+                                } else if (Math.random() < 0.3) {
+                                    scrambleText += "#$%# ";
+                                } else {
+                                    scrambleText += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                                }
+                                if (Math.random() < 0.1) scrambleText += " ";
+                            }
+                            
+                            scrambleOverlay.textContent = scrambleText;
+                            scrambleOverlay.style.display = 'block';
+                            scrambleOverlay.style.color = Math.random() > 0.5 ? '#ff0033' : '#ff0033';
+                            scrambleOverlay.style.fontSize = (10 + Math.random() * 8) + 'px';
+                            
+                            setTimeout(() => {
+                                scrambleOverlay.style.display = 'none';
+                            }, 150 + Math.random() * 200);
+                        }
+                    }, 3000 + Math.random() * 3000);
+                }
+            });
+            
+            const corruptOverlay = document.getElementById('corrupt-overlay');
+            setInterval(() => {
+                if (Math.random() < 0.1) {
+                    corruptOverlay.style.opacity = '0.03';
+                    corruptOverlay.style.backgroundColor = Math.random() > 0.5 ? '#ff0033' : '#00ff6a';
+                    
+                    setTimeout(() => {
+                        corruptOverlay.style.opacity = '0';
+                    }, 100);
+                }
+            }, 2000);
+            
+            const fullScramble = document.getElementById('full-scramble');
+            setInterval(() => {
+                if (Math.random() < 0.20) {
+                    let scrambleText = "";
+                    const lines = 15;
+                    const charsPerLine = 60;
+                    
+                    for (let l = 0; l < lines; l++) {
+                        for (let c = 0; c < charsPerLine; c++) {
+                            if (Math.random() < 0.2) {
+                                scrambleText += "3RR0R";
+                            } else if (Math.random() < 0.1) {
+                                scrambleText += "HELP";
+                            } else {
+                                scrambleText += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                            }
+                        }
+                        scrambleText += "\n";
+                    }
+                    
+                    fullScramble.textContent = scrambleText;
+                    fullScramble.style.display = 'block';
+                    fullScramble.style.color = Math.random() > 0.5 ? '#ff0033' : '#00ff6a';
+                    
+                    setTimeout(() => {
+                        fullScramble.style.display = 'none';
+                    }, 80 + Math.random() * 120);
+                }
+            }, 5000);
+            
+            const title = document.getElementById('main-title');
+            const originalTitle = title.textContent;
+            
+            setInterval(() => {
+                if (Math.random() < 0.8) { // 80% chance - almost always corrupted
+                    let corrupted = "";
+                    for (let i = 0; i < originalTitle.length; i++) {
+                        if (Math.random() < 0.6) {
+                            corrupted += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                        } else {
+                            corrupted += originalTitle[i];
+                        }
+                    }
+                    title.textContent = corrupted;
+                    
+                    if (Math.random() < 0.3) {
+                        title.style.color = Math.random() > 0.5 ? '#ff0033' : '#00ff6a';
+                        setTimeout(() => {
+                            title.style.color = '';
+                        }, 100);
+                    }
+                }
+            }, 200);
+            
+            const backLink = document.getElementById('back-link');
+            setInterval(() => {
+                if (Math.random() < 0.4) {
+                    const original = backLink.textContent;
+                    let glitched = "";
+                    for (let i = 0; i < original.length; i++) {
+                        if (Math.random() < 0.5) {
+                            glitched += corruptChars[Math.floor(Math.random() * corruptChars.length)];
+                        } else {
+                            glitched += original[i];
+                        }
+                    }
+                    backLink.textContent = glitched;
+                    backLink.style.color = '#ff0033';
+                    
+                    setTimeout(() => {
+                        backLink.textContent = 'back to logs';
+                        backLink.style.color = '';
+                    }, 100);
+                }
+            }, 1500);
+            
+            setInterval(() => {
+                if (Math.random() < 0.15) {
+                    document.body.style.filter = 'brightness(1.05)';
+                    
+                    setTimeout(() => {
+                        document.body.style.filter = '';
+                    }, 30);
+                }
+            }, 3000);
+            
+            const tableCells = document.querySelectorAll('.obs-table td');
+            tableCells.forEach(cell => {
+                setInterval(() => {
+                    if (Math.random() < 0.1) {
+                        cell.style.backgroundColor = 'rgba(255, 0, 51, 0.05)';
+                        
+                        setTimeout(() => {
+                            cell.style.backgroundColor = '';
+                        }, 200);
+                    }
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>

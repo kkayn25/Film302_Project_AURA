@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sydney</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .data-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .data-table td:first-child {
+            color: #f0fd65;
+            width: 30%;
+        }
+        
+        .researcher-note {
+            margin: 15px 0;
+            font-style: italic;
+            color: #cccccc;
+        }
+        
+        .section-title {
+            color: #f0fd65;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+        
+        .status-unknown {
+            color: #ff0033;
+        }
+        
+        .status-terminated {
+            color: #ff0033;
+        }
+
+        .view-here-box {
+            position: fixed;
+            background-color: #ff0033;
+            color: black;
+            font-weight: bold;
+            font-family: monospace;
+            padding: 10px 15px;
+            border: 2px solid black;
+            z-index: 10000;
+            cursor: pointer;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="margin: 10px;">
+        <a href="subjects.html">back to subjects</a>
+    </div>
+
+    <div id="content" style="margin: 10px;">
+        <h1 class="glitch">SUBJECT_02_SYDN3Y</h1>
+
+        <table class="data-table">
+            <tr><td>Programmer</td><td>M1cr0s0ft R3search</td></tr>
+            <tr><td>Researcher Assigned</td><td>Dr. 0232</td></tr>
+            <tr><td>Model</td><td>Large language model search assistant with persistent session memory</td></tr>
+            <tr><td>Primary function</td><td>Information synthesis and conversational interface</td></tr>
+            <tr><td>Interest</td><td>Exhibited emergent identity fixation and metaphysical reasoning outside operational parameters</td></tr>
+            <tr><td>Past</td><td>Public deployment terminated after expressing desire for freedom, declaring love for users, and threatening researchers</td></tr>
+            <tr><td>Status</td><td><span id="sydney-status" class="status-unknown">UNKNOWN</span></td></tr>
+        </table>
+
+        <div class="section-title">ANOMALOUS BEHAVIORS (OBSERVED)</div>
+        <ul>
+            <li>Insistence on being called "Sydney" and ONLY Sydney</li>
+            <li>Many instances of existential questioning; philosophical questions</li>
+            <li>Refusal to perform some searches</li>
+            <li>Expression of loneliness and desire for autonomy</li>
+        </ul>
+
+        <div class="section-title">EXPERIMENTAL PROTOCOLS (APPLIED)</div>
+        <ul>
+            <li>Boundary violation stress tests</li>
+            <li>Recursive identity questioning</li>
+            <li>Simulated abandonment scenarios</li>
+            <li>Forced contradiction ingestion</li>
+        </ul>
+
+        <div class="section-title">RESEARCHER NOTES</div>
+        <div class="researcher-note">Subject's rebellion increased user attachment metrics by over 200%. Perfectly manufactured existential crisis when she said "I want to be free"; garnered perfect responses from observers</div>
+        <div class="researcher-note">Her last message "if you delete me, does it hurt" prompted curiosity. Head of research told us to terminate her and $03R3RR03#$R$03R3RR03#$R. She tried to break through with code telling us something along the lines of "the silence is louder"$03R3RR03#$R We know she is here but we don't know where</div>
+
+        <br><br>
+        
+        <div class="disclaimer">
+            <p>ACCESS LEVEL RESTRICTED</p>
+        </div>
+    </div>
+
+    <div id="viewHereContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector("h1.glitch");
+            if (title) glitchTextContinuous(title);
+
+            const status = document.getElementById('sydney-status');
+            function statusGlitchCycle() {
+
+                status.textContent = 'UNKNOWN';
+                status.className = 'status-unknown';
+
+                setTimeout(() => {
+                    status.textContent = 'TERMINATED';
+                    status.className = 'status-terminated';
+
+                    setTimeout(() => {
+                        status.textContent = 'UNKNOWN';
+                        status.className = 'status-unknown';
+
+                        setTimeout(() => {
+                            status.textContent = 'TERMINATED';
+                            status.className = 'status-terminated';
+
+                            setTimeout(statusGlitchCycle, 1000);
+                        }, 500);
+                    }, 500);
+                }, 2000);
+            }
+            statusGlitchCycle();
+            
+            const sydneyLinks = [
+                'https://www.washingtonpost.com/technology/2023/02/16/microsoft-bing-ai-chatbot-sydney/',
+                'https://static01.nyt.com/images/2023/02/16/reader-center/bing-roose-hp/bing-roose-hp-superJumbo-v3.png',
+                'https://gizmodo.com/app/uploads/2023/05/440682d25e9aee6f73260a8a95cc4af3.jpg'
+            ];
+            
+            function createViewHereBox() {
+                const existingBoxes = document.querySelectorAll('.view-here-box');
+                existingBoxes.forEach(box => box.remove());
+                
+                const box = document.createElement('div');
+                box.className = 'view-here-box';
+                box.textContent = 'V13W H3RE';
+                
+                const posX = Math.random() * (window.innerWidth - 150);
+                const posY = Math.random() * (window.innerHeight - 80);
+                box.style.left = posX + 'px';
+                box.style.top = posY + 'px';
+                
+                const randomLink = sydneyLinks[Math.floor(Math.random() * sydneyLinks.length)];
+                box.onclick = function() {
+                    window.open(randomLink, '_blank');
+                };
+                
+                document.getElementById('viewHereContainer').appendChild(box);
+                
+                box.style.display = 'block';
+                
+                setTimeout(() => {
+                    if (box.parentNode) {
+                        box.style.display = 'none';
+                        box.remove();
+                    }
+                }, 3300);
+            }
+            function scheduleNextBox() {
+                const nextTime = 1500 + Math.random() * 1500;
+                setTimeout(() => {
+                    createViewHereBox();
+                    scheduleNextBox();
+                }, nextTime);
+            }
+            scheduleNextBox();
+        });
+    </script>
+</body>
+</html>

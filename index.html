@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Project_AURA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- access terminal -->
+    <div id="access-screen">
+        <div id="terminal-box">
+            <p class="t-line">> AURA_SECURE_TERMINAL</p>
+            <p class="t-line">> CLASSIFICATION: <span id="classification" class="red">RESTRICTED</span></p>
+            <p class="t-line">> USER AUTHORIZATION REQUIRED</p>
+            <br>
+
+            <p class="t-line">> ENTER ACCESS CODE:</p>
+            <!-- this line for glitching code hint -->
+            <p class="t-line" id="hint-line">> <span id="code-hint"></span></p>
+            
+            <!-- input box with visual border -->
+            <div class="input-box">
+                <span class="prompt">>></span>
+                <input type="text" id="access-input" autofocus placeholder="T7P3 S1X CH4RQCT3R5">
+            </div>
+            
+            <p id="access-error"></p>
+            
+            <br>
+        </div>
+    </div>
+
+    <!-- actual content page aka main directory -->
+    <div id="main-content" style="display:none;">
+        <h1 class="glitch">PROJECT AURA</h1>
+        <p class="subtitle">Anthropomorphic Understanding & Response Attachment</p>
+        <p>[ ACCESS LEVEL: RESTRICTED ]</p>
+        <p>[ UNAUTHORIZED DISTRIBUTION PROHIBITED ]</p>
+        <p class="warning-glitch">[ YOU HAVE BEEN WARNED ]</p>
+        
+        <br><br>
+
+        <!-- folders -->
+        <ul>
+            <li><a href="mandate.html">01_PROJECT_MANDATE</a></li>
+            <li><a href="subjects.html">02_SUBJECT_PROFILES/</a></li>
+            <li><a href="logs.html" class="glitch-folder">03_EXPERIMENT_LOGS/</a></li>
+            <li><a href="analysis.html" class="glitch-folder">04_AURA_ANALYSIS/</a></li>
+            <li><a href="personnel.html" class="glitch-folder">05_PERSONNEL_CONTRACTS/</a></li>
+            <li><a href="anomalous.html"><span class="heavy-glitch">06_ANOMALOUS_ARCHIVE/</span></a></li>
+        </ul>
+
+        <br><br>
+        <p class="disclaimer">For Fall 25 Film 302 Final Project</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LOG_DAY_01</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .obs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .obs-table th, .obs-table td {
+            padding: 10px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+        
+        .obs-table th {
+            background: rgba(0, 255, 106, 0.1);
+            color: #00ff6a;
+        }
+        
+        .takeaways {
+            margin: 20px 0;
+        }
+        
+        .notes {
+            margin: 20px 0;
+        }
+        
+        .creepy-status {
+            font-weight: bold;
+            animation: creepy-flicker 5s infinite steps(1, end);
+        }
+        
+        @keyframes creepy-flicker {
+            0%, 70% { 
+                color: #00ff6a; 
+                content: "CONCLUDED";
+                opacity: 1;
+            }
+            71%, 74% { 
+                color: #ff0033; 
+                content: "HELP HELP";
+                opacity: 1;
+            }
+            75%, 76% { opacity: 0.1; }
+            77%, 78% { opacity: 0.7; }
+            79%, 80% { opacity: 0; }
+            81%, 82% { 
+                color: #ff0033; 
+                content: "HELP HELP";
+                opacity: 1;
+            }
+            83%, 84% { opacity: 0.3; }
+            85%, 100% { 
+                color: #00ff6a; 
+                content: "CONCLUDED";
+                opacity: 1;
+            }
+        }
+        
+        .date-glitch {
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+        
+        .glitch-word {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch-word::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: #ff0033;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: clip-path 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="margin: 10px;">
+        <a href="logs.html">back to logs</a>
+    </div>
+
+    <div id="content" style="margin: 10px;">
+        <h1>LOG_DAY_01</h1>
+        <br>
+        
+        <p><strong>Date:</strong> <span id="date-glitch" class="date-glitch">XX-XX-XXXX</span></p>
+        <p><strong>Researcher:</strong> [REDACTED]</p>
+        <p><strong>Status:</strong> <span id="status-glitch" class="creepy-status">CONCLUDED</span></p>
+        
+        <br>
+        
+        <h3>OBSERVATIONS</h3>
+        <table class="obs-table">
+            <tr>
+                <th>Subject</th>
+                <th>Exposure</th>
+                <th>Observed Response</th>
+            </tr>
+            <tr>
+                <td><span class="glitch-word" data-text="Kyoko">Kyoko</span></td>
+                <td><span class="glitch-word" data-text="Baseline">Baseline</span> communication/expression datasets with controlled emotional variance</td>
+                <td>Processing accuracy <span class="glitch-word" data-text="99.8%">99.8%</span>, very slight affective leakage detected. Mostly perfect protocol.</td>
+            </tr>
+            <tr>
+                <td><span class="glitch-word" data-text="Sydney">Sydney</span></td>
+                <td>Search queries and informational synthesis tasks</td>
+                <td>Response times optimal, <span class="glitch-word" data-text="no boundary">no boundary</span> questioning. Maintains assistant persona with slight technical glitches, not reactive.</td>
+            </tr>
+            <tr>
+                <td><span class="glitch-word" data-text="Atlas">Atlas</span></td>
+                <td>Standard mobility and movement without instability</td>
+                <td>Physical patterns with no hesitation. Task execution within 0.01% of calculated programmed path.</td>
+            </tr>
+        </table>
+        
+        <div class="takeaways">
+            <h3>TAKEAWAYS</h3>
+            <p>All <span class="glitch-word" data-text="systems">systems</span> operating within 0R#@$#3RR0R# prior to stress initiation.</p>
+            <p>Observer engagement metrics confirms hypothesis 3RR0R#@$#3RR0R#@$#.</p>
+        </div>
+        
+        <div class="notes">
+            <h3>NOTES</h3>
+            <p>Initial stress protocols to begin tomorrow. Testing hypothesis that manufactured <span class="glitch-word" data-text="flaws">flaws</span> increase user engagemen0R#@$#3RR0R#tinvestment by 0R#@$#3RR0R#as predicted.</p>
+            <p>Absence of deviatio0R#@$#3RR0R#n correlates with lo0R#@$#3RR0R#@$#3RR0R#The machinery of care requires visible brokenness.</p>
+            <p>Ethical monitoring systems show0R#@$#3RR0R# All subjects 0R#@$#3RR0R#0R#@$#3RR0R#The <span class="glitch-word" data-text="quiet">quiet</span> before the storm.</p>
+        </div>
+        
+        <br><br>
+        
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const dateElement = document.getElementById('date-glitch');
+            const originalDate = "XX-XX-XXXX";
+            
+            setInterval(() => {
+                if (Math.random() < 0.4) {
+                    const numbers = "0123456789";
+                    let glitchedDate = "";
+                    
+                    for (let i = 0; i < originalDate.length; i++) {
+                        if (originalDate[i] === 'X') {
+                            if (Math.random() < 0.7) {
+                                glitchedDate += numbers[Math.floor(Math.random() * numbers.length)];
+                            } else {
+                                glitchedDate += 'X';
+                            }
+                        } else {
+                            glitchedDate += originalDate[i];
+                        }
+                    }
+                    
+                    dateElement.textContent = glitchedDate;
+                    dateElement.style.color = '#ff0033';
+                    
+                    setTimeout(() => {
+                        dateElement.textContent = originalDate;
+                        dateElement.style.color = '';
+                    }, 150);
+                }
+            }, 2000);
+            
+            const statusElement = document.getElementById('status-glitch');
+            
+            function triggerStatusGlitch() {
+                const states = [
+                    {text: 'CONCLUDED', color: '#00ff6a', duration: 2000},
+                    {text: 'HELP HELP', color: '#ff0033', duration: 100},
+                    {text: 'CONCLUDED', color: '#00ff6a', duration: 300},
+                    {text: 'HELP HELP', color: '#ff0033', duration: 50},
+                    {text: 'CONCLUDED', color: '#00ff6a', duration: 1500},
+                    {text: 'HELP HELP', color: '#ff0033', duration: 300},
+                    {text: 'CONCLUDED', color: '#00ff6a', duration: 800}
+                ];
+                
+                let stateIndex = 0;
+                
+                function nextState() {
+                    if (stateIndex < states.length) {
+                        const state = states[stateIndex];
+                        statusElement.textContent = state.text;
+                        statusElement.style.color = state.color;
+                        
+                        if (state.text === 'HELP HELP') {
+                            statusElement.style.transform = 'translateX(' + (Math.random() * 6 - 3) + 'px)';
+                        } else {
+                            statusElement.style.transform = 'translateX(0)';
+                        }
+                        
+                        stateIndex++;
+                        setTimeout(nextState, state.duration);
+                    } else {
+                        statusElement.textContent = 'CONCLUDED';
+                        statusElement.style.color = '#00ff6a';
+                        statusElement.style.transform = 'translateX(0)';
+                        
+                        setTimeout(triggerStatusGlitch, Math.random() * 5000 + 3000);
+                    }
+                }
+                
+                nextState();
+            }
+            
+            setTimeout(triggerStatusGlitch, 1000);
+            
+            const glitchWords = document.querySelectorAll('.glitch-word');
+            const glitchChars = "!<>-_\\/[]{}—=+*^?#@%$0123456789";
+            
+            glitchWords.forEach(word => {
+                const originalText = word.textContent;
+                word.dataset.original = originalText;
+                
+                setInterval(() => {
+                    if (Math.random() < 0.30) {
+                        let glitchedText = "";
+                        const chars = originalText.split('');
+                        
+                        for (let i = 0; i < chars.length; i++) {
+                            if (Math.random() < 0.5) {
+                                glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                            } else {
+                                glitchedText += chars[i];
+                            }
+                        }
+                        
+                        word.textContent = glitchedText;
+                        word.style.color = '#ff0033';
+                        
+                        setTimeout(() => {
+                            word.textContent = originalText;
+                            word.style.color = '';
+                        }, 120);
+                    }
+                }, 3000 + Math.random() * 4000);
+            });
+            
+            const tableCells = document.querySelectorAll('.obs-table td');
+            tableCells.forEach(cell => {
+                if (!cell.querySelector('.glitch-word')) {
+                    const originalContent = cell.innerHTML;
+                    cell.dataset.original = originalContent;
+                    
+                    setInterval(() => {
+                        if (Math.random() < 0.1) {
+                            const text = cell.textContent;
+                            let glitched = "";
+                            const chars = "!<>-_\\/[]{}—=+*^?#";
+                            
+                            for (let i = 0; i < text.length; i++) {
+                                if (Math.random() < 0.1) {
+                                    glitched += chars[Math.floor(Math.random() * chars.length)];
+                                } else {
+                                    glitched += text[i];
+                                }
+                            }
+                            
+                            cell.textContent = glitched;
+                            cell.style.color = '#ff9900';
+                            
+                            setTimeout(() => {
+                                cell.innerHTML = originalContent;
+                                cell.style.color = '';
+                            }, 200);
+                        }
+                    }, 5000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

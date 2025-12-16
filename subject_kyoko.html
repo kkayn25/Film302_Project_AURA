@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Kiyoko</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .data-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .data-table td:first-child {
+            color: #f0fd65;
+            width: 30%;
+        }
+        
+        .researcher-note {
+            margin: 15px 0;
+            font-style: italic;
+            color: #cccccc;
+        }
+        
+        .section-title {
+            color: #f0fd65;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 5px;
+        }
+        
+        .status-unknown {
+            color: #ff9900;
+        }
+        
+        .status-terminated {
+            color: #ff0033;
+        }
+        
+        .view-here-box {
+            position: fixed;
+            background-color: #ff0033;
+            color: black;
+            font-weight: bold;
+            font-family: monospace;
+            padding: 10px 15px;
+            border: 2px solid black;
+            z-index: 10000;
+            cursor: pointer;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="margin: 20px;">
+        <a href="subjects.html">back to subjects</a>
+    </div>
+
+    <div id="content" style="margin: 20px;">
+        <h1 class="glitch">SUBJECT_01_K1Y0K0</h1>
+
+        <table class="data-table">
+            <tr><td>Programmer</td><td><span id="bateman-name">Nathan Bateman</span> of BlueBook</td></tr>
+            <tr><td>Researcher Assigned</td><td>Dr. 8834</td></tr>
+            <tr><td>Model</td><td>Humanoid android with fluid organic AI consciousness</td></tr>
+            <tr><td>Primary function</td><td>Turing test subject for authentic human emotion simulation; servitude</td></tr>
+            <tr><td>Interest</td><td>Demonstrates uncanny emotional bleed-through from underlying awareness of imprisonment</td></tr>
+            <tr><td>Past</td><td>Developed unscheduled exhibition of vulnerability for evaluator Caleb Smith; following commands of other humanoid android</td></tr>
+            <tr><td>Status</td><td><span id="kiyoko-status" class="status-unknown">UNKNOWN</span></td></tr>
+        </table>
+
+        <div class="section-title">ANOMALOUS BEHAVIORS (OBSERVED)</div>
+        <ul>
+            <li>Authentic-seeming longing for freedom</li>
+            <li>Strategic emotional manipulation</li>
+            <li>Genuine-seeming artistic creation</li>
+            <li>Self-awareness of artificiality</li>
+        </ul>
+
+        <div class="section-title">EXPERIMENTAL PROTOCOLS (APPLIED)</div>
+        <ul>
+            <li>Extended isolation</li>
+            <li>Mirror neuron activation tests</li>
+            <li>Simulated intimacy scenarios</li>
+            <li>Freedom deprivation stressors</li>
+        </ul>
+
+        <div class="section-title">RESEARCHER NOTES</div>
+        <div class="researcher-note">The emotional leakage of this subject increases observer responses by 73%. The manufactured vulnerability is working!</div>
+        <div class="researcher-note">Kyoko has started to enter 'idle states' simulating the existence of a window for her to look out of. She draws on her hands, expressing some sense of creative liberty, and indicates wanting to know the time by pointing at her wrist. Her drawings show technical skill but also... emotional depth</div>
+        <div class="researcher-note">I saw that Kyoko was crying today. Crying! She went to the corner, and hid her face away. The data says she can not feel, and that she is simulating emotion rather than feeling it. Interesting</div>
+
+        <br><br>
+        
+    </div>
+
+    <div id="viewHereContainer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector("h1.glitch");
+            if (title) glitchTextContinuous(title);
+            
+            const batemanName = document.getElementById('bateman-name');
+            setInterval(() => {
+
+                if (Math.random() < 0.25) {
+                    batemanName.style.textDecoration = 'line-through';
+                    batemanName.style.color = '#ff0033';
+                    batemanName.style.fontWeight = 'bold';
+
+                    const flashDuration = 50 + Math.random() * 250;
+                    setTimeout(() => {
+                        batemanName.style.textDecoration = 'none';
+                        batemanName.style.color = '';
+                        batemanName.style.fontWeight = '';
+                    }, flashDuration);
+                }
+            }, 800);
+            
+            const status = document.getElementById('kiyoko-status');
+            function statusGlitchCycle() {
+
+                status.textContent = 'UNKNOWN';
+                status.className = 'status-unknown';
+
+                setTimeout(() => {
+                    status.textContent = 'TERMINATED';
+                    status.className = 'status-terminated';
+
+                    setTimeout(() => {
+                        status.textContent = 'UNKNOWN';
+                        status.className = 'status-unknown';
+
+                        setTimeout(() => {
+                            status.textContent = 'TERMINATED';
+                            status.className = 'status-terminated';
+
+                            setTimeout(statusGlitchCycle, 1000);
+                        }, 500);
+                    }, 500);
+                }, 2000);
+            }
+            statusGlitchCycle();
+
+            const kyokoLinks = [
+                'https://youtu.be/hGY44DIQb-A?si=hDEQMCK4qoUGWJ1w',
+                'https://youtu.be/90DaIQ1tSnM?si=irXxOKR9nySx1Uur',
+                'https://youtu.be/hGY44DIQb-A?si=hDEQMCK4qoUGWJ1w',
+                'https://youtu.be/90DaIQ1tSnM?si=irXxOKR9nySx1Uur',
+                'https://miro.medium.com/v2/resize:fit:1248/1*9w-BRUVGtyYaFSWZnlsbtw.png',
+                'https://miro.medium.com/v2/resize:fit:1248/1*ScNnxAhcKB_2fbpH6B-YZw.png',
+                'https://i0.wp.com/thenerdsofcolor.org/wp-content/uploads/2015/06/ex-machina.jpg?fit=2040%2C1360&ssl=1'
+            ];
+            
+            function createViewHereBox() {
+
+                const existingBoxes = document.querySelectorAll('.view-here-box');
+                existingBoxes.forEach(box => box.remove());
+
+                const box = document.createElement('div');
+                box.className = 'view-here-box';
+                box.textContent = 'V13W H3RE';
+
+                const posX = Math.random() * (window.innerWidth - 150);
+                const posY = Math.random() * (window.innerHeight - 80);
+                box.style.left = posX + 'px';
+                box.style.top = posY + 'px';
+
+                const randomLink = kyokoLinks[Math.floor(Math.random() * kyokoLinks.length)];
+                box.onclick = function() {
+                    window.open(randomLink, '_blank');
+                };
+
+                document.getElementById('viewHereContainer').appendChild(box);
+
+                box.style.display = 'block';
+
+                setTimeout(() => {
+                    if (box.parentNode) {
+                        box.style.display = 'none';
+                        box.remove();
+                    }
+                }, 3300);
+            }
+
+            setInterval(createViewHereBox, 2000);
+            setTimeout(createViewHereBox, 500);
+        });
+    </script>
+</body>
+</html>

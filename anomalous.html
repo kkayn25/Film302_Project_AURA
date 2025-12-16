@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ANOMALOUS ARCHIVE</title>
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: monospace;
+        }
+        
+        .back-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00ff6a;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        
+        .back-link:hover {
+            color: #ff0033;
+            text-decoration: line-through;
+        }
+        
+        .forbidden-button {
+            color: #ff0033;
+            font-size: 1.8em;
+            text-decoration: none;
+            border: 3px solid #ff0033;
+            padding: 20px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 0, 51, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .forbidden-button:hover {
+            color: #00ff6a;
+            border-color: #00ff6a;
+            background: rgba(0, 255, 106, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html#main" class="back-link" id="back-button">back to directory</a>
+    
+    <a href="https://youtu.be/OLZ9N_juYic" target="_blank" class="forbidden-button" id="glitch-button">
+        FORBIDDEN_ACCESS
+    </a>
+
+    <script>
+        // button glitch
+        const button = document.getElementById('glitch-button');
+        const originalButtonText = button.textContent;
+        
+        button.addEventListener('mouseenter', function() {
+            let glitchInterval;
+            let glitchCount = 0;
+            
+            // change to green on hover
+            this.style.color = '#00ff6a';
+            this.style.borderColor = '#00ff6a';
+            
+            // rapid glitching ooo so scary
+            glitchInterval = setInterval(() => {
+                const chars = "!<>-_\\/[]{}—=+*^?#@%$";
+                this.textContent = originalButtonText.split('').map(char => 
+                    Math.random() < 0.6 ? chars[Math.floor(Math.random() * chars.length)] : char
+                ).join('');
+                
+                glitchCount++;
+                // stop after some amount of glitches or when mouse leaves
+                if (glitchCount > 100) {
+                    clearInterval(glitchInterval);
+                    this.textContent = originalButtonText;
+                }
+            }, 30); // veeeery fast glitching
+            
+            // on mouse leave
+            button.addEventListener('mouseleave', function() {
+                clearInterval(glitchInterval);
+                this.textContent = originalButtonText;
+                // return to red color
+                this.style.color = '#ff0033';
+                this.style.borderColor = '#ff0033';
+                this.style.boxShadow = 'none';
+            }, { once: true });
+        });
+        
+        // BACK TO DIRECTORY button random "HELP HELP HELP" glitch
+        const backButton = document.getElementById('back-button');
+        const originalBackText = backButton.textContent;
+        
+        // random glitch function for back button
+        function triggerHelpGlitch() {
+            let helpGlitchInterval;
+            let helpCount = 0;
+            const helpPhrases = ["HELP HELP", "WE NEED HELP", "HELP HELP HELP HELP"];
+            
+            // orig color
+            const originalColor = backButton.style.color;
+            
+            // turn red & start glitching
+            backButton.style.color = '#ff0033';
+            backButton.style.textDecoration = 'none';
+            
+            helpGlitchInterval = setInterval(() => {
+                // rapidly switch between phrases
+                backButton.textContent = helpPhrases[Math.floor(Math.random() * helpPhrases.length)];
+                
+                helpCount++;
+                if (helpCount > 10) {
+                    clearInterval(helpGlitchInterval);
+                    backButton.textContent = originalBackText;
+                    backButton.style.color = originalColor || '#00ff6a';
+                    
+                    setTimeout(triggerHelpGlitch, Math.random() * 2000 + 500);
+                }
+            }, 30);
+        }
+        
+        setTimeout(() => {
+            triggerHelpGlitch();
+        }, 500);
+        
+        backButton.addEventListener('mouseenter', function() {
+            const chars = "!<>-_\\/[]{}—=+*^?#@%$";
+            const original = this.textContent;
+            
+            let hoverGlitchInterval = setInterval(() => {
+                this.textContent = original.split('').map(char => 
+                    Math.random() < 0.4 ? chars[Math.floor(Math.random() * chars.length)] : char
+                ).join('');
+            }, 50);
+            
+            backButton.addEventListener('mouseleave', function() {
+                clearInterval(hoverGlitchInterval);
+                this.textContent = original;
+            }, { once: true });
+        });
+    </script>
+
+</body>
+</html>

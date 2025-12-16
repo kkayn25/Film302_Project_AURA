@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>LOG_DAY_05</title>
+    <style>
+        body {
+            background-color: black;
+            color: #ffff00;
+            font-family: monospace;
+            padding: 10px;
+            margin: 0;
+        }
+        
+        a {
+            color: #0dff00;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-link {
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        h1 {
+            color: #40ff00;
+        }
+        
+        .subtitle {
+            color: #22ff00;
+        }
+        
+        .file-not-found-link {
+            color: #ff0033;
+            font-family: monospace;
+            font-size: 1em;
+            text-decoration: none;
+            margin: 0 8px;
+            line-height: 1.5;
+        }
+        
+        .file-not-found-link:hover {
+            color: #00ff6a;
+        }
+        
+        #file-not-found-container {
+            margin-top: 10px;
+            line-height: 1;
+        }
+        
+        .special-link {
+            color: #00ff6a;
+            font-family: monospace;
+            font-size: 1.2em;
+            text-decoration: none;
+            margin: 0 8px;
+            line-height: 1.5;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .special-link:hover {
+            color: #ff0033;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="logs.html" class="back-link">back to logs</a>
+
+    <div id="content">
+        <h1>LOG_DAY_05</h1>
+        <p class="subtitle">[SYSTEM COLLAPSE - FINAL ENTRY]</p>
+        
+        <br><br>
+        
+        <div id="file-not-found-container"></div>
+    </div>
+
+    <script>
+        const container = document.getElementById('file-not-found-container');
+        const itemsPerRow = 10;
+        const totalRows = 30;
+        const totalItems = totalRows * itemsPerRow;
+        
+        const specialPositions = [
+            {row: 0, col: 0, text: '0N3_F1L3_F0UND', link: 'https://www.canva.com/design/DAG7oaDRtwI/Znrr00q31asINr2vv6-FGQ/view?utm_content=DAG7oaDRtwI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he5d5dea1a9', id: 'special-link-1'},
+            {row: 10, col: 4, text: 'TW0_F1L3_F0UND', link: 'https://www.canva.com/design/DAG7osCo8Jg/-QrxhO_nyuabdVjCbuuitA/view?utm_content=DAG7osCo8Jg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h88f80ddd87', id: 'special-link-2'},
+            {row: 20, col: 2, text: 'THR33_F1L3_F0UND', link: 'https://www.canva.com/design/DAG7onKHSi0/Uy6-ou6a1fXKpVAiv2Px9A/view?utm_content=DAG7onKHSi0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he898f5332d', id: 'special-link-3'},
+            {row: 29, col: 7, text: 'WH4T H4V3 WE BEC0M3', link: 'https://www.canva.com/design/DAG7ouE01EE/jRtj5u5ap8WLh8e9gAOqKQ/view?utm_content=DAG7ouE01EE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h2b3f977998', id: 'special-link-4'}
+        ];
+        
+        for (let row = 0; row < totalRows; row++) {
+            for (let col = 0; col < itemsPerRow; col++) {
+                const index = row * itemsPerRow + col;
+                const isSpecial = specialPositions.find(pos => pos.row === row && pos.col === col);
+                
+                if (isSpecial) {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = isSpecial.link;
+                    linkElement.target = '_blank';
+                    linkElement.className = 'special-link';
+                    linkElement.id = isSpecial.id;
+                    linkElement.textContent = isSpecial.text;
+                    container.appendChild(linkElement);
+                } else {
+                    const spanElement = document.createElement('span');
+                    spanElement.className = 'file-not-found-link';
+                    spanElement.textContent = 'FILE_NOT_FOUND';
+                    container.appendChild(spanElement);
+                }
+                
+                if (col < itemsPerRow - 1) {
+                    container.appendChild(document.createTextNode(' '));
+                }
+            }
+            
+            if (row < totalRows - 1) {
+                container.appendChild(document.createElement('br'));
+            }
+        }
+        
+        const backLink = document.querySelector('.back-link');
+        setInterval(() => {
+            if (Math.random() < 0.2) {
+                const original = backLink.textContent;
+                backLink.textContent = '[RUN]';
+                backLink.style.color = '#ff0033';
+                
+                setTimeout(() => {
+                    backLink.textContent = original;
+                    backLink.style.color = '';
+                }, 200);
+            }
+        }, 3000);
+        
+        function glitchSpecialLink(element, originalText) {
+            const glitchChars = "!<>-_\\/[]{}—=+*^?#@%$0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            
+            setInterval(() => {
+                if (Math.random() < 0.8) {
+                    let glitchedText = "";
+                    for (let i = 0; i < originalText.length; i++) {
+                        if (Math.random() < 0.85) {
+                            glitchedText += glitchChars[Math.floor(Math.random() * glitchChars.length)];
+                        } else {
+                            glitchedText += originalText[i];
+                        }
+                    }
+                    element.textContent = glitchedText;
+                    element.style.color = '#ff0033';
+                    element.style.textShadow = '0 0 8px #ff0033';
+                    
+                    setTimeout(() => {
+                        element.textContent = originalText;
+                        element.style.color = '#00ff6a';
+                        element.style.textShadow = 'none';
+                    }, 40 + Math.random() * 60);
+                }
+            }, 80 + Math.random() * 120);
+        }
+        
+        setTimeout(() => {
+            specialPositions.forEach(special => {
+                const element = document.getElementById(special.id);
+                if (element) {
+                    glitchSpecialLink(element, special.text);
+                    
+                    element.addEventListener('mouseenter', function() {
+                        this.style.textShadow = '0 0 15px #ff0033';
+                        this.style.transform = 'scale(1.08)';
+                    });
+                    
+                    element.addEventListener('mouseleave', function() {
+                        this.style.textShadow = 'none';
+                        this.style.transform = 'scale(1)';
+                    });
+                }
+            });
+        }, 500);
+        
+        const regularItems = document.querySelectorAll('.file-not-found-link');
+        regularItems.forEach(item => {
+            if (Math.random() < 0.05) {
+                setInterval(() => {
+                    if (Math.random() < 0.03) {
+                        const original = item.textContent;
+                        item.textContent = 'F1L3_N0T_F0UND';
+                        item.style.color = '#ff9900';
+                        
+                        setTimeout(() => {
+                            item.textContent = original;
+                            item.style.color = '#ff0033';
+                        }, 150);
+                    }
+                }, 3000);
+            }
+        });
+    </script>
+
+</body>
+</html>

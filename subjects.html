@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Subject Profiles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div style="margin: 10px;">
+        <a href="#" id="back-link">back to directory</a>
+    </div>
+
+    <div id="content" style="margin: 10px;">
+        <h1 class="glitch">02_SUBJECT_PROFILES</h1>
+        <p class="subtitle">Activ3 test subj3cts and 0bserved 4nomalies</p>
+
+        <ul>
+            <li><a href="subject_kyoko.html">SUBJECT_01_KY0K0</a></li>
+            <li><a href="subject_sydney.html" class="glitch-folder">SUBJECT_02_SYDN3Y</a></li>
+            <li><a href="subject_atlas.html">SUBJECT_03_4TLAS</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // back link
+        document.getElementById('back-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'index.html#main';
+        });
+        
+        // apply glitch to title
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector("h1.glitch");
+            if (title) glitchTextContinuous(title);
+        });
+        
+        // include glitch function
+        function glitchTextContinuous(element) {
+            const original = element.innerText;
+            const chars = "!<>-_\\/[]{}—=+*^?#________";
+            let frameCount = 0;
+
+            function doGlitch() {
+                if (frameCount % 2 === 0) {
+                    element.innerText = original
+                        .split("")
+                        .map(char => Math.random() < 0.2 ? chars[Math.floor(Math.random() * chars.length)] : char)
+                        .join("");
+                }
+                if (Math.random() < 0.05) {
+                    element.innerText = original;
+                }
+
+                frameCount++;
+                requestAnimationFrame(doGlitch);
+            }
+
+            doGlitch();
+        }
+    </script>
+    
+</body>
+</html>

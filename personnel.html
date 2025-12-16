@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Personnel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .personnel-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .personnel-table td {
+            padding: 20px 10px;
+            border-bottom: 2px solid #333;
+            vertical-align: middle;
+        }
+        
+        .personnel-table td:first-child {
+            width: 20%;
+            font-family: monospace;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .id-0232 { color: #fff200; }
+        .id-8834 { color: #888888; }
+        .id-3421 { color: #fff200; }
+        .id-5562 { color: #fff200; }
+        .id-8678 { color: #fff200; }
+        .id-head { color: #ff0033; }
+        
+        .contract-loading { color: #fff200; }
+        .contract-terminated { color: #ff0033; }
+        .contract-unknown { color: #ff0033; }
+        .contract-help { color: #ff0033; }
+        .contract-active { color: #00ff6a; }
+        
+        .chat-message {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.95);
+            border: 3px solid #ff0033;
+            color: #ff0033;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 1em;
+            z-index: 1000;
+            max-width: 350px;
+        }
+        
+        .title {
+            color: #f0fd65;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        
+        .contract {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="margin: 20px;">
+        <a href="index.html#main">back to directory</a>
+    </div>
+
+    <div id="content" style="margin: 20px;">
+        <h1 class="glitch">05_PERSONNEL_CONTRACTS</h1>
+        
+        <br><br>
+        
+        <table class="personnel-table">
+            <tr>
+                <td><span id="id-0232" class="id-0232">0232</span></td>
+                <td>
+                    <div class="title">Assistant Researcher | AURA Development</div>
+                    <div class="contract">Contract: <span id="contract-0232" class="contract-loading">LOADING…</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td><span id="id-8834" class="id-8834">8834</span></td>
+                <td>
+                    <div class="title">Assistant Researcher | AURA Development</div>
+                    <div class="contract">Contract: <span id="contract-8834" class="contract-terminated">TERMINATED</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td><span id="id-3421" class="id-3421">3421</span></td>
+                <td>
+                    <div class="title">Assistant Researcher | AURA Development</div>
+                    <div class="contract">Contract: <span id="contract-3421" class="contract-loading">LOADING…</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td><span id="id-5562" class="id-5562">5562</span></td>
+                <td>
+                    <div class="title">Assistant Researcher | AURA Development</div>
+                    <div class="contract">Contract: <span id="contract-5562" class="contract-loading">LOADING…</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td><span id="id-6677" class="id-6677">6677</span></td>
+                <td>
+                    <div class="title">Systems Maintenance Programmer | AURA Development</div>
+                    <div class="contract">Contract: <span id="contract-6677" class="contract-loading">LOADING…</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td><span id="id-head" class="id-head">####</span></td>
+                <td>
+                    <div class="title">Lead Researcher | Head of AURA Development</div>
+                    <div class="contract">Contract: <span id="contract-head" class="contract-loading">LOADING…</span></div>
+                </td>
+            </tr>
+        </table>
+        
+        <div id="chat-container"></div>
+        
+        <br><br>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector("h1.glitch");
+            if (title) glitchTextContinuous(title);
+            
+            function glitchId(element, baseId) {
+                setInterval(() => {
+                    if (Math.random() < 0.3) {
+                        const digits = '0123456789';
+                        const glitched = baseId.split('').map(char => 
+                            Math.random() < 0.4 ? digits[Math.floor(Math.random() * digits.length)] : char
+                        ).join('');
+                        element.textContent = glitched;
+                        setTimeout(() => {
+                            element.textContent = baseId;
+                        }, 100);
+                    }
+                }, 2000);
+            }
+            
+            glitchId(document.getElementById('id-0232'), '0232');
+            glitchId(document.getElementById('id-8834'), '8834');
+            glitchId(document.getElementById('id-3421'), '3421');
+            glitchId(document.getElementById('id-5562'), '5562');
+            glitchId(document.getElementById('id-6677'), '6677');
+            
+            const headId = document.getElementById('id-head');
+            setInterval(() => {
+                const digits = '0123456789';
+                const glitched = '####'.split('').map(() => 
+                    digits[Math.floor(Math.random() * digits.length)]
+                ).join('');
+                headId.textContent = glitched;
+                setTimeout(() => {
+                    headId.textContent = '####';
+                }, 80);
+            }, 500);
+            
+            function glitchContract(element, states) {
+                setInterval(() => {
+                    const randomState = states[Math.floor(Math.random() * states.length)];
+                    element.textContent = randomState.text;
+                    element.className = randomState.class;
+                    
+                    setTimeout(() => {
+                        if (element.id !== 'contract-8834') {
+                            element.textContent = 'LOADING…';
+                            element.className = 'contract-loading';
+                        }
+                    }, randomState.duration || 400);
+                }, 1500);
+            }
+            
+            glitchContract(document.getElementById('contract-0232'), [
+                {text: 'LOADING…', class: 'contract-loading', duration: 800}
+            ]);
+            
+            const contract8834 = document.getElementById('contract-8834');
+            setInterval(() => {
+                if (Math.random() < 0.8) {
+                    contract8834.textContent = 'TERMINATED';
+                    contract8834.className = 'contract-terminated';
+                } else {
+                    contract8834.textContent = 'LOADING…';
+                    contract8834.className = 'contract-loading';
+                    setTimeout(() => {
+                        contract8834.textContent = 'TERMINATED';
+                        contract8834.className = 'contract-terminated';
+                    }, 300);
+                }
+            }, 800);
+            
+            glitchContract(document.getElementById('contract-3421'), [
+                {text: 'LOADING…', class: 'contract-loading', duration: 500},
+                {text: 'UNKNOWN', class: 'contract-unknown', duration: 500}
+            ]);
+            
+            glitchContract(document.getElementById('contract-5562'), [
+                {text: 'LOADING…', class: 'contract-loading', duration: 600}
+            ]);
+            
+            glitchContract(document.getElementById('contract-6677'), [
+                {text: 'LOADING…', class: 'contract-loading', duration: 500}
+            ]);
+            
+            const headContract = document.getElementById('contract-head');
+            setInterval(() => {
+                const rand = Math.random();
+                if (rand < 0.7) {
+                    headContract.textContent = 'LOADING…';
+                    headContract.className = 'contract-loading';
+                } else if (rand < 0.85) {
+                    headContract.textContent = 'HELP HELP HELP';
+                    headContract.className = 'contract-help';
+                    setTimeout(() => {
+                        headContract.textContent = 'LOADING…';
+                        headContract.className = 'contract-loading';
+                    }, 500);
+                } else {
+                    headContract.textContent = 'ACTIVE';
+                    headContract.className = 'contract-active';
+                    setTimeout(() => {
+                        headContract.textContent = 'LOADING…';
+                        headContract.className = 'contract-loading';
+                    }, 500);
+                }
+            }, 1200);
+            
+            const chatMessages = [
+                "8834 has sent a message: W3 NE3D T0 5T0P",
+                "8834 has sent a message: TH1S 1S WR0NG",
+                "WHY 4RE Y0U JU5T W4TCH1NG?",
+                "8834 has sent a message: 1 C4NT B3 A P4RT 0F TH15 4NYM0R3",
+                "8834 has sent a message: 1T F33L5 R34L T0 TH3M",
+                "WHY 4RE Y0U JU5T W4TCH1NG?",
+                "8834 has sent a message: AR3 W3 M0N5T3RS? WH0 H4VE W3 B3C0ME",
+                "PL34SE H3LP",
+                "PL34SE H3LP",
+                "PL34SE H3LP",
+            ];
+            
+            const chatContainer = document.getElementById('chat-container');
+            let messageCount = 0;
+            
+            function showChatMessage() {
+                const message = chatMessages[Math.floor(Math.random() * chatMessages.length)];
+                const messageElement = document.createElement('div');
+                messageElement.className = 'chat-message';
+                messageElement.textContent = message;
+                messageElement.id = 'msg-' + messageCount++;
+                
+                const left = Math.random() * 70 + 10;
+                const top = Math.random() * 70 + 10;
+                messageElement.style.left = left + '%';
+                messageElement.style.top = top + '%';
+                
+                messageElement.style.display = 'block';
+                messageElement.style.opacity = '1';
+                
+                chatContainer.appendChild(messageElement);
+                
+                let glitchInterval = setInterval(() => {
+                    const chars = "!<>-_HELP=+*^?#HELP%$*";
+                    messageElement.textContent = message.split('').map(char => 
+                        Math.random() < 0.1 ? chars[Math.floor(Math.random() * chars.length)] : char
+                    ).join('');
+                    
+                    setTimeout(() => {
+                        messageElement.textContent = message;
+                    }, 50);
+                }, 200);
+                
+                setTimeout(() => {
+                    clearInterval(glitchInterval);
+                    chatContainer.removeChild(messageElement);
+                }, 2000);
+            }
+            
+            setTimeout(() => {
+                showChatMessage();
+                setInterval(showChatMessage, 3000);
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
